@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Solicitudes Académicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de Solicitudes Académicas</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Ingresar Nueva Solicitud</h2>
+            <!-- Área de mensajes para el usuario -->
+            <div id="mensajes"></div>
+
+            <form id="solicitudForm">
+                <label for="nombre">Nombre del estudiante:</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="correo">Correo institucional:</label>
+                <input type="email" id="correo" name="correo">
+
+                <label for="asignatura">Asignatura:</label>
+                <input type="text" id="asignatura" name="asignatura">
+
+                <label for="tipo">Tipo de solicitud:</label>
+                <select id="tipo" name="tipo">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Evaluación">Evaluación</option>
+                    <option value="Asistencia">Asistencia</option>
+                    <option value="Contenidos">Contenidos</option>
+                    <option value="Plataforma">Plataforma</option>
+                    <option value="Otro">Otro</option>
+                </select>
+
+                <label for="descripcion">Descripción de la solicitud:</label>
+                <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+
+                <label for="prioridad">Prioridad:</label>
+                <select id="prioridad" name="prioridad">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                </select>
+
+                <label for="fecha">Fecha de ingreso:</label>
+                <input type="date" id="fecha" name="fecha">
+
+                <button type="submit">Registrar Solicitud</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Listado de Solicitudes</h2>
+            
+            <div class="filtros">
+                <label for="filtroPrioridad">Filtrar por Prioridad:</label>
+                <select id="filtroPrioridad">
+                    <option value="Todas">Todas</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                </select>
+            </div>
+
+            <table id="tablaSolicitudes">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Asignatura</th>
+                        <th>Tipo</th>
+                        <th>Prioridad</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se agregarán dinámicamente con JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
