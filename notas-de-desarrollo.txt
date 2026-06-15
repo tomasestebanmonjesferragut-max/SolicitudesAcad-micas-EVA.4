@@ -1,0 +1,9 @@
+Tiene que tener una estructura de almacenamiento: json, arreglo, sql, localstorage.
+Elementos con dinamismo cuenta como JS (el carrusel es opcional, se puede proponer otra cosa).
+5 tipos de solicitudes del doc, todas sus prioridades.
+Cumplir con las funcionalidades minimas de la pagina 3 (se puede hacer mas pero hay que cumplir con lo mimimo, hacerlas completas).
+manejar crud con Arreglo en JS.
+automaticamente se debe limpiar el formulario luego de enviar una solicitud.
+Analizar las preguntas
+Subir a github (2 commits min.).
+Que el responsive sea ordenado (nada se debe chocar ni estar fuera de lugar)

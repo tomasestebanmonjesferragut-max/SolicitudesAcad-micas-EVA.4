@@ -1,0 +1,254 @@
+/* Reseteo básico de márgenes y fuentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1b26; /* Color oscuro estilo editor de código (Dark Theme) */
+    color: #a9b1d6; /* Texto suave */
+    line-height: 1.6;
+}
+
+/* --- MENÚ DE NAVEGACIÓN --- */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    background: linear-gradient(to bottom, rgba(26, 27, 38, 0.95) 0%, rgba(26, 27, 38, 0) 100%);
+}
+
+.logo {
+    color: #c0caf5;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #a9b1d6;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active-link {
+    color: #7aa2f7; /* Azul claro estilo sintaxis */
+}
+
+/* --- SECCIÓN CARRUSEL (HERO) --- */
+.carousel-section {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Ocupa el 85% de la pantalla, dejando asomar lo de abajo */
+    background-color: #16161e;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.4; /* Oscurece la imagen para que el texto resalte */
+}
+
+/* Contenido de cada Slide */
+.slide-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 700px;
+    padding: 30px;
+    background: rgba(26, 27, 38, 0.7); /* Caja de cristal oscura */
+    border-radius: 12px;
+    border-left: 4px solid #7aa2f7;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease 0.3s; /* Animación de entrada del texto */
+}
+
+.slide.active .slide-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-content h2 {
+    font-size: 3em;
+    color: #c0caf5;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.slide-content p {
+    font-size: 1.2em;
+    color: #e0af68; /* Color acento (amarillo/naranja suave) */
+    margin-bottom: 25px;
+}
+
+/* Pequeño Botón del Carrusel */
+.btn-small {
+    display: inline-block;
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    padding: 10px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-small:hover {
+    background-color: #9ece6a; /* Verde en hover */
+    transform: translateY(-2px);
+}
+
+/* Flechas del Carrusel */
+.carousel-controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 4;
+}
+
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-controls button:hover {
+    background: #7aa2f7;
+    color: #1a1b26;
+}
+
+/* Indicadores (Rayitas abajo) */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 4;
+}
+
+.line {
+    width: 40px; /* Forma de rayita */
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, width 0.3s;
+}
+
+.line:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.line.active {
+    background-color: #7aa2f7;
+    width: 60px; /* Se hace un poco más larga al estar activa */
+}
+
+/* --- SECCIÓN INFO INSTITUTO (Abajo del Carrusel) --- */
+.info-section {
+    padding: 80px 10%;
+    background-color: #1a1b26;
+}
+
+.info-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.info-header h2 {
+    font-size: 2.5em;
+    color: #c0caf5;
+    margin-bottom: 20px;
+}
+
+.info-header p {
+    font-size: 1.15em;
+    color: #9ece6a; /* Acento verde claro */
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #24283b; /* Un tono un poco más claro que el fondo */
+    padding: 40px 30px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    border-top: 4px solid #bb9af7; /* Acento morado */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card .icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: #c0caf5;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.feature-card p {
+    font-size: 1em;
+}
