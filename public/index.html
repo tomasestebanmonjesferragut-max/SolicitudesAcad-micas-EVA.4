@@ -3,89 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escuela El GanadoRegistro de Solicitudes Académicas</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Inicio - Academia Excelencia</title>
+    <link rel="stylesheet" href="css/styles-home.css">
 </head>
 <body>
     <header>
-        <h1>Escuela El Ganado | Registro de Solicitudes Académicas</h1>
+        <div class="logo">Academia Excelencia</div>
+        <nav>
+            <a href="#" class="active-link">Inicio</a>
+            <a href="#instituto">El Instituto</a>
+            <a href="registro.html">Portal de Solicitudes</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="form-section">
-            <h2>Ingresar Nueva Solicitud</h2>
-            <div id="mensajes"></div>
-
-            <form id="solicitudForm">
-                <label for="nombre">Nombre del estudiante:</label>
-                <input type="text" id="nombre" name="nombre">
-
-                <label for="correo">Correo institucional:</label>
-                <input type="email" id="correo" name="correo">
-
-                <label for="asignatura">Asignatura:</label>
-                <input type="text" id="asignatura" name="asignatura">
-
-                <label for="tipo">Tipo de solicitud:</label>
-                <select id="tipo" name="tipo">
-                    <option value="">Seleccione una opción</option>
-                    <option value="Evaluación">Evaluación</option>
-                    <option value="Asistencia">Asistencia</option>
-                    <option value="Contenidos">Contenidos</option>
-                    <option value="Plataforma">Plataforma</option>
-                    <option value="Otro">Otro</option>
-                </select>
-
-                <label for="descripcion">Descripción de la solicitud:</label>
-                <textarea id="descripcion" name="descripcion" rows="4"></textarea>
-
-                <label for="prioridad">Prioridad:</label>
-                <select id="prioridad" name="prioridad">
-                    <option value="">Seleccione una opción</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                </select>
-
-                <label for="fecha">Fecha de ingreso:</label>
-                <input type="date" id="fecha" name="fecha">
-
-                <button type="submit">Registrar Solicitud</button>
-            </form>
-        </section>
-
-        <section class="list-section">
-            <h2>Listado de Solicitudes</h2>
-            
-            <div class="filtros">
-                <label for="filtroPrioridad">Filtrar por Prioridad:</label>
-                <select id="filtroPrioridad">
-                    <option value="Todas">Todas</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                </select>
+    <section class="carousel-section">
+        <div class="slide active">
+            <img src="img/Aula.png" alt="Sala de clases">
+            <div class="slide-content">
+                <h2>Portal de Estudiantes</h2>
+                <p>Accede a nuestro sistema para registrar y gestionar tus solicitudes académicas, dudas y requerimientos de plataforma.</p>
+                <a href="registro.html" class="btn-small">Ingresar Solicitud</a>
             </div>
+        </div>
 
-            <table id="tablaSolicitudes">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Asignatura</th>
-                        <th>Tipo</th>
-                        <th>Prioridad</th>
-                        <th>Fecha</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- filas dinámicas -->
-                </tbody>
-            </table>
-        </section>
-    </main>
+        <div class="slide">
+            <img src="img/Profesores.jpg" alt="Nuestros Profesores">
+            <div class="slide-content">
+                <h2>Excelencia Docente</h2>
+                <p>Contamos con un equipo de profesionales altamente capacitados y apasionados por transmitir sus conocimientos.</p>
+                <a href="#equipo" class="btn-small">Conocer al Equipo</a>
+            </div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="slide">
+            <img src="img/Materia.jpg" alt="Material de estudio">
+            <div class="slide-content">
+                <h2>Malla Actualizada</h2>
+                <p>Nuestros planes de estudio se renuevan constantemente para responder a las exigencias del mercado laboral.</p>
+                <a href="#malla" class="btn-small">Explorar Malla</a>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="carousel-indicators">
+            <span class="line active" onclick="setSlide(0)"></span>
+            <span class="line" onclick="setSlide(1)"></span>
+            <span class="line" onclick="setSlide(2)"></span>
+        </div>
+    </section>
+
+    <section id="instituto" class="info-section">
+        <div class="info-header">
+            <h2>Formando a los líderes del mañana</h2>
+            <p>En Academia Excelencia forjamos el carácter y las habilidades prácticas que necesitarás para enfrentar el mundo real.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">💻</div>
+                <h3>Enfoque Práctico</h3>
+                <p>Aprende haciendo. Nuestra metodología se basa en proyectos reales, laboratorios y resolución de problemas.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🤝</div>
+                <h3>Tutorías Personalizadas</h3>
+                <p>No serás un número más. Ofrecemos acompañamiento constante para asegurar que domines cada concepto.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h3>Certificación Reconocida</h3>
+                <p>Al finalizar tus estudios, obtendrás diplomas avalados por la industria que impulsarán tu currículum.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const lines = document.querySelectorAll('.line');
+
+        function showSlide(index) {
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
+            lines.forEach(line => line.classList.remove('active'));
+            slides[currentSlideIndex].classList.add('active');
+            lines[currentSlideIndex].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            currentSlideIndex += step;
+            showSlide(currentSlideIndex);
+        }
+
+        function setSlide(index) {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+
+        setInterval(() => { moveSlide(1); }, 6000);
+    </script>
 </body>
 </html>
