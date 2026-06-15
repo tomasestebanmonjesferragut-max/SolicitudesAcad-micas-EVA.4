@@ -21,7 +21,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 60px;
+    padding: 20px;
+    position: relative;
+    z-index: 1050;
     background: linear-gradient(to bottom, rgba(26, 27, 38, 0.95) 0%, rgba(26, 27, 38, 0) 100%);
 }
 

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Vanguardia - Plana Docente">
+    <title>Docentes | Instituto Vanguardia</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Estilos Profesionales -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1><i class="bi bi-mortarboard-fill me-2"></i>Instituto Vanguardia</h1>
+        
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-house-door-fill me-2"></i>Inicio
+                </a>
+                <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="solicitudes.html">
+                                <i class="bi bi-inbox-fill me-1"></i>Trámites
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-tools me-1"></i>Servicios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="materias.html"><i class="bi bi-journal-bookmark-fill me-2"></i>Asignaturas</a></li>
+                                <li><a class="dropdown-item active" href="profesores.html"><i class="bi bi-person-video3 me-2"></i>Docentes</a></li>
+                                <li><a class="dropdown-item" href="horarios.html"><i class="bi bi-calendar-week me-2"></i>Agenda Semanal</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="informacion.html">
+                                <i class="bi bi-info-circle-fill me-1"></i>Directorio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container my-5 layout fade-in">
+        
+        <div class="d-flex justify-content-between align-items-center mb-5 border-bottom pb-4" style="border-color: var(--glass-border) !important;">
+            <div>
+                <h2 class="fw-bold m-0" style="background: var(--primary-gradient); background-clip: text; -webkit-text-fill-color: transparent;">
+                    <i class="bi bi-person-video3 me-2 text-primary"></i>Plana Docente
+                </h2>
+                <p class="text-muted mt-2 mb-0">Conoce a los expertos y académicos que guían tu desarrollo profesional.</p>
+            </div>
+            
+            <div class="input-group d-none d-md-flex" style="width: 250px; box-shadow: var(--shadow-sm); border-radius: var(--radius-md); overflow: hidden;">
+                <span class="input-group-text bg-white border-0"><i class="bi bi-search text-primary"></i></span>
+                <input type="text" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar docente...">
+            </div>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- Profesor 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1 text-primary"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Dr. Roberto Salazar</h5>
+                    <p class="text-muted small mb-2">Dpto. de Ingeniería de Sistemas</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-primary rounded-pill">Arquitectura</span>
+                        <span class="badge text-bg-dark rounded-pill">Cloud Computing</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profesor 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1 text-success"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">MSc. Elena Valdés</h5>
+                    <p class="text-muted small mb-2">Dpto. de Ciencias Exactas</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-success rounded-pill">Cálculo Avanzado</span>
+                        <span class="badge text-bg-secondary rounded-pill">Estadística</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profesor 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1 text-info"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Ing. Marcos Rivas</h5>
+                    <p class="text-muted small mb-2">Dpto. de Gestión de Proyectos</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-info text-white rounded-pill">Metodologías Ágiles</span>
+                        <span class="badge text-bg-dark rounded-pill">Scrum</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profesor 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1 text-warning"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Dr. Luis Mendoza</h5>
+                    <p class="text-muted small mb-2">Dpto. de Seguridad Informática</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-warning rounded-pill">Ciberseguridad</span>
+                        <span class="badge text-bg-danger rounded-pill">Redes</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profesor 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1 text-secondary"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Dra. Ana Silva</h5>
+                    <p class="text-muted small mb-2">Dpto. de Ingeniería de Software</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-secondary rounded-pill">Desarrollo Web</span>
+                        <span class="badge text-bg-primary rounded-pill">Java</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profesor 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="p-4 h-100 text-center d-flex flex-column" style="background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);">
+                    <div class="mb-3">
+                        <div class="bg-white rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-fill fs-1" style="color: #8b5cf6;"></i>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Mg. Carlos Mendoza</h5>
+                    <p class="text-muted small mb-2">Dpto. de Análisis de Datos</p>
+                    <div class="mb-3">
+                        <span class="badge text-white rounded-pill" style="background-color: #8b5cf6;">Bases de Datos</span>
+                        <span class="badge text-bg-dark rounded-pill">Big Data</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-auto fw-bold py-2 w-100" style="border-radius: var(--radius-md);">
+                        <i class="bi bi-envelope-fill me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-5 pt-5 border-top" style="border-color: var(--glass-border) !important;">
+        <div class="container text-center pb-5">
+            <p class="text-muted mb-0">
+                <i class="bi bi-c-circle me-2"></i>2024 Instituto Vanguardia | Plataforma Educativa Segura
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
