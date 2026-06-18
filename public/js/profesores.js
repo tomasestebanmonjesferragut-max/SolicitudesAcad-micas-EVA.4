@@ -92,16 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
     // BUSCADOR EN TIEMPO REAL
-    // ==========================================
     buscador?.addEventListener('input', (e) => {
         renderizarTarjetas(e.target.value);
     });
 
-    // ==========================================
     // AGREGAR NUEVO DOCENTE
-    // ==========================================
     btnAgregar?.addEventListener('click', async () => {
         const { value: formValues } = await Swal.fire({
             title: 'Nuevo Docente',

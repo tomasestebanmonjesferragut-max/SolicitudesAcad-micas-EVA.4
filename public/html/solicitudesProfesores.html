@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admisión | Instituto John H. Watson</title>
+    <title>Soporte Docente | Instituto John H. Watson</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -73,11 +73,11 @@
             <section id="listado" class="col-lg-8">
                 <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3" style="border-color: var(--glass-border) !important;">
                     <h2 class="fw-bold m-0" style="background: var(--primary-gradient); background-clip: text; -webkit-text-fill-color: transparent;">
-                        <i class="bi bi-person-vcard me-2 text-primary"></i>Postulaciones Nuevas
+                        <i class="bi bi-pc-display-horizontal me-2 text-primary"></i>Soporte Técnico Docente
                     </h2>
                     <div class="input-group" style="width: 280px; box-shadow: var(--shadow-sm); border-radius: var(--radius-md); overflow: hidden;">
                         <span class="input-group-text bg-white border-0"><i class="bi bi-search text-primary"></i></span>
-                        <input type="text" id="buscador" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar postulante...">
+                        <input type="text" id="buscador" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar ticket...">
                     </div>
                 </div>
 
@@ -85,14 +85,14 @@
                     <table class="table align-middle">
                         <thead>
                             <tr>
-                                <th>Folio</th>
-                                <th>Estudiante</th>
-                                <th>Año que postula</th>
-                                <th>Estado</th>
-                                <th>Fecha Inscripción</th>
+                                <th>Ticket</th>
+                                <th>Profesor Solicitante</th>
+                                <th>Reporte del Problema</th>
+                                <th>Prioridad</th>
+                                <th>Fecha</th>
                             </tr>
                         </thead>
-                        <tbody id="tablaSolicitudes"></tbody>
+                        <tbody id="tablaSoporte"></tbody>
                     </table>
                 </div>
             </section>
@@ -102,27 +102,27 @@
                     <div class="panel-buttons mb-4">
                         <button class="btn btn-secondary w-100 mb-3 text-start fw-bold" id="btnRegistrar">
                             <div class="d-flex align-items-center">
-                                <div class="bg-primary rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-plus-lg"></i></div>
-                                Ingresar Postulación
+                                <div class="bg-primary rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-exclamation-triangle"></i></div>
+                                Reportar Incidencia
                             </div>
                         </button>
                         <button class="btn btn-secondary w-100 mb-3 text-start fw-bold" id="btnModificar">
                             <div class="d-flex align-items-center">
-                                <div class="bg-warning rounded-circle p-1 text-dark d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-arrow-repeat"></i></div>
-                                Actualizar Estado
+                                <div class="bg-warning rounded-circle p-1 text-dark d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-sliders"></i></div>
+                                Cambiar Prioridad
                             </div>
                         </button>
                         <button class="btn btn-secondary w-100 text-start fw-bold" id="btnEliminar">
                             <div class="d-flex align-items-center">
-                                <div class="bg-danger rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-trash-fill"></i></div>
-                                Anular Postulación
+                                <div class="bg-success rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;"><i class="bi bi-check2-circle"></i></div>
+                                Marcar Resuelto
                             </div>
                         </button>
                     </div>
                     <div id="panelContenido" class="flex-grow-1 p-3 rounded-3" style="background: rgba(255,255,255,0.05); border: 1px dashed var(--glass-border);">
                         <div class="text-center text-muted mt-4 fade-in">
                             <i class="bi bi-terminal-fill fs-1 d-block mb-3 text-primary opacity-50"></i>
-                            <span class="fw-medium">Seleccione una acción del menú para gestionar postulaciones.</span>
+                            <span class="fw-medium">Seleccione una acción para gestionar el soporte en aulas y laboratorios.</span>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/solicitudes.js"></script>
+    <script src="../js/solicitudesProfesores.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

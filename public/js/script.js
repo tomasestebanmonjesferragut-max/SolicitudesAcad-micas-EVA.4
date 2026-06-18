@@ -1,237 +1,93 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Solo ejecutamos si estamos en la página de solicitudes
-    if (!document.getElementById('tablaSolicitudes')) return;
-
-    class GestorSolicitudes {
-        constructor() {
-            this.solicitudes = JSON.parse(localStorage.getItem('solicitudesDB')) || [];
-            this.tabla = document.getElementById('tablaSolicitudes');
-            this.panelContenido = document.getElementById('panelContenido');
+// ==========================================
+    // EXPORTAR A PDF (Formato Clásico / Normal)
+    // ==========================================
+    const btnExportar = document.querySelector('.bi-printer')?.closest('button');
+    if (btnExportar) {
+        btnExportar.addEventListener('click', () => {
+            // 1. Clonar la tabla para no romper el diseño oscuro de la página
+            const tablaOriginal = document.querySelector('.table');
+            const tablaClon = tablaOriginal.cloneNode(true);
             
-            this.initEvents();
-            this.actualizarTabla();
-        }
-
-        guardarDatos() {
-            localStorage.setItem('solicitudesDB', JSON.stringify(this.solicitudes));
-            this.actualizarTabla();
-        }
-
-        obtenerFechaActual() {
-            return new Intl.DateTimeFormat('es-CL', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            }).format(new Date());
-        }
-
-        actualizarTabla(filtro = '') {
-            this.tabla.innerHTML = '';
+            // 2. Crear un contenedor limpio ("hoja de papel en blanco")
+            const contenedorPDF = document.createElement('div');
+            contenedorPDF.style.padding = '20px';
+            contenedorPDF.style.fontFamily = 'Arial, sans-serif';
+            contenedorPDF.style.backgroundColor = '#ffffff';
             
-            if (this.solicitudes.length === 0) {
-                this.tabla.innerHTML = `
-                    <tr>
-                        <td colspan="6" class="text-center py-5">
-                            <i class="bi bi-inbox text-muted fs-1 block mb-2"></i>
-                            <p class="text-muted mb-0">No hay solicitudes registradas en este momento.</p>
-                        </td>
-                    </tr>`;
-                return;
-            }
-
-            const textoFiltro = filtro.toLowerCase();
-
-            this.solicitudes.forEach((solicitud) => {
-                const { id, nombre, correo, asignatura, tipo, prioridad, fecha } = solicitud;
-
-                if (nombre.toLowerCase().includes(textoFiltro) || id.toString().includes(textoFiltro)) {
-                    const badgeClass = 
-                        prioridad === 'Alta' ? 'text-bg-danger' : 
-                        prioridad === 'Media' ? 'text-bg-warning' : 
-                        'text-bg-info text-white';
-
-                    const fila = document.createElement('tr');
-                    fila.className = 'fade-in';
-                    fila.innerHTML = `
-                        <td><span class="badge badge-id">#${id}</span></td>
-                        <td>
-                            <strong class="d-block text-truncate" style="max-width: 200px;">${nombre}</strong>
-                            <small class="text-muted">${correo}</small>
-                        </td>
-                        <td><span class="fw-medium">${asignatura}</span></td>
-                        <td>${tipo}</td>
-                        <td><span class="badge rounded-pill ${badgeClass}">${prioridad}</span></td>
-                        <td class="text-muted small">${fecha}</td>
-                    `;
-                    this.tabla.appendChild(fila);
-                }
-            });
-        }
-
-        mostrarFormularioRegistro() {
-            this.panelContenido.innerHTML = `
-                <div class="fade-in">
-                    <h5 class="mb-4 fw-bold text-primary">Nueva Solicitud</h5>
-                    <form id="formRegistro" class="needs-validation">
-                        <div class="form-floating mb-3">
-                            <input type="text" id="nom" class="form-control" placeholder="Nombre" required>
-                            <label for="nom">Nombre completo</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" id="corr" class="form-control" placeholder="Correo" required>
-                            <label for="corr">Correo institucional</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" id="asig" class="form-control" placeholder="Asignatura" required>
-                            <label for="asig">Asignatura</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select id="tip" class="form-select" required>
-                                <option value="" disabled selected>Selecciona una opción...</option>
-                                <option value="Revisión de nota">Revisión de nota</option>
-                                <option value="Justificación">Justificación</option>
-                                <option value="Certificado">Certificado</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                            <label for="tip">Tipo de solicitud</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <select id="prio" class="form-select">
-                                <option value="Baja">Prioridad Baja</option>
-                                <option value="Media">Prioridad Media</option>
-                                <option value="Alta">Prioridad Alta</option>
-                            </select>
-                            <label for="prio">Nivel de prioridad</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold shadow-sm">
-                            <i class="bi bi-save me-2"></i>Registrar Solicitud
-                        </button>
-                    </form>
+            // 3. Añadir el membrete oficial del Liceo
+            contenedorPDF.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px; border-bottom: 2px solid #000; padding-bottom: 10px;">
+                    <h2 style="margin: 0; color: #000;">Instituto Técnico John H. Watson</h2>
+                    <h4 style="margin: 5px 0 0 0; color: #444;">Horario Académico Semanal</h4>
                 </div>
             `;
-
-            document.getElementById('formRegistro').addEventListener('submit', (e) => {
-                e.preventDefault();
+            
+            // 4. Limpiar los estilos web de la tabla clonada
+            tablaClon.classList.remove('table', 'align-middle'); 
+            tablaClon.style.width = '100%';
+            tablaClon.style.borderCollapse = 'collapse';
+            
+            // 5. Aplicar bordes negros clásicos y texto oscuro a TODAS las celdas
+            const celdas = tablaClon.querySelectorAll('th, td');
+            celdas.forEach(celda => {
+                celda.style.border = '1px solid #000000';
+                celda.style.padding = '12px 8px';
+                celda.style.textAlign = 'center';
+                celda.style.verticalAlign = 'middle';
+                celda.style.color = '#000000'; // Forzar texto negro
                 
-                const nuevaSolicitud = {
-                    id: crypto.randomUUID().slice(0, 5).toUpperCase(),
-                    nombre: document.getElementById('nom').value.trim(),
-                    correo: document.getElementById('corr').value.trim(),
-                    asignatura: document.getElementById('asig').value.trim(),
-                    tipo: document.getElementById('tip').value,
-                    prioridad: document.getElementById('prio').value,
-                    fecha: this.obtenerFechaActual()
-                };
-                
-                this.solicitudes.push(nuevaSolicitud);
-                this.guardarDatos();
-                this.panelContenido.innerHTML = '';
-                
-                Swal.fire({
-                    title: '¡Registrado!',
-                    text: 'La solicitud ha sido guardada con éxito.',
-                    icon: 'success',
-                    confirmButtonColor: '#4f46e5'
+                // Si hay textos secundarios (como el aula), ponerlos en gris oscuro
+                const textosPequeños = celda.querySelectorAll('.text-muted, small');
+                textosPequeños.forEach(txt => {
+                    txt.style.color = '#333333';
+                    txt.style.display = 'block';
+                    txt.style.marginTop = '4px';
                 });
             });
-        }
 
-        mostrarFormularioModificar() {
-            this.panelContenido.innerHTML = `
-                <div class="fade-in">
-                    <h5 class="mb-4 fw-bold text-warning">Modificar Prioridad</h5>
-                    <div class="form-floating mb-3">
-                        <input type="text" id="idMod" class="form-control" placeholder="ID">
-                        <label for="idMod">ID de la solicitud (Ej: 1A2B3)</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <select id="nuevaPrio" class="form-select">
-                            <option value="Alta">Alta</option>
-                            <option value="Media">Media</option>
-                            <option value="Baja">Baja</option>
-                        </select>
-                        <label for="nuevaPrio">Nueva Prioridad</label>
-                    </div>
-                    <button id="confirmarMod" class="btn btn-warning w-100 py-2 fw-semibold shadow-sm">
-                        <i class="bi bi-arrow-clockwise me-2"></i>Actualizar Estado
-                    </button>
-                </div>
-            `;
-
-            document.getElementById('confirmarMod').addEventListener('click', () => {
-                const idBuscado = document.getElementById('idMod').value.trim().toUpperCase();
-                const index = this.solicitudes.findIndex(s => s.id === idBuscado);
-
-                if (index !== -1) {
-                    this.solicitudes[index].prioridad = document.getElementById('nuevaPrio').value;
-                    this.guardarDatos();
-                    this.panelContenido.innerHTML = '';
-                    Swal.fire({
-                        title: 'Actualizado', 
-                        text: 'La prioridad ha sido modificada.', 
-                        icon: 'info',
-                        confirmButtonColor: '#4f46e5'
-                    });
-                } else {
-                    Swal.fire('Error', 'No se encontró ninguna solicitud con ese ID.', 'error');
-                }
+            // 6. Fondo gris claro para los encabezados (Días de la semana)
+            const encabezados = tablaClon.querySelectorAll('th');
+            encabezados.forEach(th => {
+                th.style.backgroundColor = '#e2e8f0';
+                th.style.fontWeight = 'bold';
+                th.style.color = '#000000';
             });
-        }
 
-        mostrarFormularioEliminar() {
-            this.panelContenido.innerHTML = `
-                <div class="fade-in">
-                    <h5 class="mb-4 fw-bold text-danger">Eliminar Solicitud</h5>
-                    <div class="form-floating mb-4">
-                        <input type="text" id="idEliminar" class="form-control" placeholder="ID a eliminar">
-                        <label for="idEliminar">ID de la solicitud</label>
-                    </div>
-                    <button id="confirmarEliminar" class="btn btn-danger w-100 py-2 fw-semibold shadow-sm">
-                        <i class="bi bi-trash me-2"></i>Eliminar Definitivamente
-                    </button>
-                </div>
-            `;
-
-            document.getElementById('confirmarEliminar').addEventListener('click', () => {
-                const idBuscado = document.getElementById('idEliminar').value.trim().toUpperCase();
-                const index = this.solicitudes.findIndex(s => s.id === idBuscado);
-
-                if (index !== -1) {
-                    Swal.fire({
-                        title: '¿Estás seguro?',
-                        text: "Esta acción no se puede deshacer",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#dc3545',
-                        cancelButtonColor: '#6c757d',
-                        confirmButtonText: 'Sí, eliminar',
-                        cancelButtonText: 'Cancelar',
-                        reverseButtons: true
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            this.solicitudes.splice(index, 1);
-                            this.guardarDatos();
-                            this.panelContenido.innerHTML = '';
-                            Swal.fire('Eliminada', 'La solicitud ha sido borrada.', 'success');
-                        }
-                    });
-                } else {
-                    Swal.fire('Error', 'No se encontró ninguna solicitud con ese ID.', 'error');
-                }
+            // 7. Ajustar las pastillas de colores para que destaquen en el papel
+            const badges = tablaClon.querySelectorAll('.badge');
+            badges.forEach(badge => {
+                badge.style.display = 'inline-block';
+                badge.style.padding = '6px 10px';
+                badge.style.borderRadius = '4px';
+                badge.style.fontSize = '13px';
+                badge.style.fontWeight = 'bold';
             });
-        }
 
-        initEvents() {
-            document.getElementById('btnRegistrar')?.addEventListener('click', () => this.mostrarFormularioRegistro());
-            document.getElementById('btnModificar')?.addEventListener('click', () => this.mostrarFormularioModificar());
-            document.getElementById('btnEliminar')?.addEventListener('click', () => this.mostrarFormularioEliminar());
+            // Agregamos la tabla limpia al contenedor
+            contenedorPDF.appendChild(tablaClon);
+
+            // Opciones de configuración de PDF
+            const opciones = {
+                margin:       0.4,
+                filename:     'Horario_Clases_JHW.pdf',
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
             
-            document.getElementById('buscador')?.addEventListener('input', (e) => {
-                this.actualizarTabla(e.target.value);
+            // Efecto de carga en el botón
+            const textoOriginal = btnExportar.innerHTML;
+            btnExportar.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generando PDF...';
+            
+            // Generar y descargar el PDF desde el contenedor limpio, NO desde la pantalla
+            html2pdf().set(opciones).from(contenedorPDF).save().then(() => {
+                btnExportar.innerHTML = textoOriginal;
+                Swal.fire({
+                    title: '¡Descarga Completa!',
+                    text: 'El horario ha sido guardado con formato de impresión clásico.',
+                    icon: 'success',
+                    confirmButtonColor: '#10b981'
+                });
             });
-        }
+        });
     }
-
-    new GestorSolicitudes();
-});

@@ -681,3 +681,25 @@ a .bi {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-secondary);
 }
+
+/* =========================================
+   TEMA CLARO (LIGHT MODE)
+========================================= */
+body.light-mode {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --glass-panel: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(59, 130, 246, 0.3);
+}
+
+body.light-mode .table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+body.light-mode .navbar-toggler {
+    background-color: var(--accent-primary);
+}

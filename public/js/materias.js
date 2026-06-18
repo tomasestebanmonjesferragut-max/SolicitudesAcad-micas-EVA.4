@@ -94,9 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
+
     // AGREGAR NUEVA MATERIA
-    // ==========================================
     btnAgregar?.addEventListener('click', async () => {
         let opcionesProfesores = '';
         db.profesores.forEach(p => {
@@ -151,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==========================================
     // MODIFICAR MATERIA EXISTENTE
-    // ==========================================
     btnEditar?.addEventListener('click', async () => {
         let opcionesAsignaturas = '';
         db.asignaturas.forEach(a => {

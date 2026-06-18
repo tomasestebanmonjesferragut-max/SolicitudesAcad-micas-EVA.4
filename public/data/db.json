@@ -1,114 +1,116 @@
 {
   "profesores": [
-    { "id": "P001", "nombre": "Dr. Roberto Salazar", "departamento": "Sistemas Operativos y Hardware" },
-    { "id": "P002", "nombre": "MSc. Elena Valdés", "departamento": "Matemáticas y Física" },
-    { "id": "P003", "nombre": "Ing. Marcos Rivas", "departamento": "Seguridad y Redes" },
+    { "id": "P001", "nombre": "Dr. Roberto Salazar", "departamento": "Soporte Computacional" },
+    { "id": "P002", "nombre": "MSc. Elena Valdés", "departamento": "Matemática y Ciencias" },
+    { "id": "P003", "nombre": "Ing. Marcos Rivas", "departamento": "Conectividad y Redes" },
     { "id": "P004", "nombre": "Lic. Carmen Rojas", "departamento": "Lenguaje y Comunicación" },
-    { "id": "P005", "nombre": "Lic. Andrés Bello", "departamento": "Historia y Humanidades" },
-    { "id": "P006", "nombre": "Prof. Jorge Silva", "departamento": "Educación Física y Deportes" },
+    { "id": "P005", "nombre": "Lic. Andrés Bello", "departamento": "Historia y Educación Ciudadana" },
+    { "id": "P006", "nombre": "Prof. Jorge Silva", "departamento": "Educación Física" },
     { "id": "P007", "nombre": "Ing. Daniela Torres", "departamento": "Desarrollo de Software" },
-    { "id": "P008", "nombre": "Mg. Carlos Mendoza", "departamento": "Programación Avanzada" },
-    { "id": "P009", "nombre": "Teacher Sarah Connor", "departamento": "Idiomas Extranjeros" }
+    { "id": "P008", "nombre": "Mg. Carlos Mendoza", "departamento": "Programación y Bases de Datos" },
+    { "id": "P009", "nombre": "Teacher Sarah Connor", "departamento": "Inglés" }
   ],
   "asignaturas": [
-    { "id": "A101", "codigo": "LEN-101", "nombre": "Lenguaje y Comunicación", "profesor_id": "P004", "color": "primary" },
-    { "id": "A102", "codigo": "MAT-201", "nombre": "Matemáticas y Álgebra", "profesor_id": "P002", "color": "success" },
-    { "id": "A103", "codigo": "HIS-101", "nombre": "Historia y Geografía", "profesor_id": "P005", "color": "warning" },
-    { "id": "A104", "codigo": "ING-201", "nombre": "Inglés Técnico", "profesor_id": "P009", "color": "info" },
-    { "id": "A105", "codigo": "CIE-101", "nombre": "Ciencias Aplicadas", "profesor_id": "P002", "color": "success" },
-    { "id": "A106", "codigo": "EFI-101", "nombre": "Educación Física", "profesor_id": "P006", "color": "danger" },
-    { "id": "A107", "codigo": "BBD-301", "nombre": "Bases de Datos Relacionales", "profesor_id": "P008", "color": "dark" },
-    { "id": "A108", "codigo": "PYT-401", "nombre": "Programación en Python", "profesor_id": "P008", "color": "warning" },
-    { "id": "A109", "codigo": "JAV-402", "nombre": "Programación en Java", "profesor_id": "P007", "color": "danger" },
-    { "id": "A110", "codigo": "WEB-305", "nombre": "Desarrollo Web FullStack", "profesor_id": "P007", "color": "info" },
-    { "id": "A111", "codigo": "WIN-501", "nombre": "Servidores Windows", "profesor_id": "P001", "color": "primary" },
-    { "id": "A112", "codigo": "LIN-502", "nombre": "Servidores Linux", "profesor_id": "P001", "color": "dark" },
-    { "id": "A113", "codigo": "SEG-601", "nombre": "Ciberseguridad y Redes", "profesor_id": "P003", "color": "danger" },
-    { "id": "A114", "codigo": "HDW-201", "nombre": "Arquitectura y Hardware", "profesor_id": "P001", "color": "secondary" }
+    { "id": "A101", "codigo": "PLC-101", "nombre": "Lenguaje y Literatura", "profesor_id": "P004", "color": "primary" },
+    { "id": "A102", "codigo": "PLC-201", "nombre": "Matemática", "profesor_id": "P002", "color": "success" },
+    { "id": "A103", "codigo": "PLC-301", "nombre": "Historia y Geografía", "profesor_id": "P005", "color": "warning" },
+    { "id": "A104", "codigo": "PLC-401", "nombre": "Inglés Común", "profesor_id": "P009", "color": "info" },
+    { "id": "A105", "codigo": "PLC-501", "nombre": "Ciencias para la Ciudadanía", "profesor_id": "P002", "color": "success" },
+    { "id": "A106", "codigo": "PLC-601", "nombre": "Educación Física y Salud", "profesor_id": "P006", "color": "danger" },
+    { "id": "A107", "codigo": "MOD-001", "nombre": "Módulo: Programación y BBDD", "profesor_id": "P008", "color": "dark" },
+    { "id": "A108", "codigo": "MOD-002", "nombre": "Módulo: Desarrollo Aplicaciones Web", "profesor_id": "P007", "color": "info" },
+    { "id": "A109", "codigo": "MOD-003", "nombre": "Módulo: Prog. Orientada a Objetos (Java)", "profesor_id": "P007", "color": "danger" },
+    { "id": "A110", "codigo": "MOD-004", "nombre": "Módulo: Armado y Mantención de Equipos", "profesor_id": "P001", "color": "secondary" },
+    { "id": "A111", "codigo": "MOD-005", "nombre": "Módulo: Sistemas Operativos (Linux/Win)", "profesor_id": "P001", "color": "primary" },
+    { "id": "A112", "codigo": "MOD-006", "nombre": "Módulo: Instalación de Redes (Cisco)", "profesor_id": "P003", "color": "warning" },
+    { "id": "A113", "codigo": "MOD-007", "nombre": "Módulo: Ciberseguridad Básica", "profesor_id": "P003", "color": "dark" },
+    { "id": "A114", "codigo": "MOD-008", "nombre": "Módulo: Emprendimiento y Empleabilidad", "profesor_id": "P005", "color": "success" }
   ],
   "horarios": [
     {
       "bloque": "08:00 - 09:30",
-      "lunes": { "asignatura_id": "A101", "aula": "Sala 15" },
-      "martes": { "asignatura_id": "A102", "aula": "Sala 15" },
-      "miercoles": { "asignatura_id": "A102", "aula": "Sala 15" },
-      "jueves": { "asignatura_id": "A104", "aula": "Lab Idiomas" },
-      "viernes": { "asignatura_id": "A103", "aula": "Sala 15" }
+      "lunes": { "asignatura_id": "A101", "aula": "Sala 3B" },
+      "martes": { "asignatura_id": "A102", "aula": "Sala 3B" },
+      "miercoles": { "asignatura_id": "A102", "aula": "Sala 3B" },
+      "jueves": { "asignatura_id": "A104", "aula": "Sala 3B" },
+      "viernes": { "asignatura_id": "A103", "aula": "Sala 3B" }
     },
     {
       "bloque": "09:45 - 11:15",
-      "lunes": { "asignatura_id": "A101", "aula": "Sala 15" },
-      "martes": { "asignatura_id": "A109", "aula": "Lab Programación 1" },
-      "miercoles": { "asignatura_id": "A109", "aula": "Lab Programación 1" },
-      "jueves": { "asignatura_id": "A103", "aula": "Sala 15" },
-      "viernes": { "asignatura_id": "A108", "aula": "Lab Programación 2" }
+      "lunes": { "asignatura_id": "A101", "aula": "Sala 3B" },
+      "martes": { "asignatura_id": "A107", "aula": "Lab Computación 1" },
+      "miercoles": { "asignatura_id": "A109", "aula": "Lab Computación 2" },
+      "jueves": { "asignatura_id": "A103", "aula": "Sala 3B" },
+      "viernes": { "asignatura_id": "A107", "aula": "Lab Computación 1" }
     },
     {
       "bloque": "12:00 - 13:30",
-      "lunes": { "asignatura_id": "A107", "aula": "Lab Base de Datos" },
-      "martes": { "asignatura_id": "A107", "aula": "Lab Base de Datos" },
+      "lunes": { "asignatura_id": "A108", "aula": "Lab Computación 2" },
+      "martes": { "asignatura_id": "A111", "aula": "Lab Redes y SO" },
       "miercoles": { "asignatura_id": "A105", "aula": "Lab Ciencias" },
       "jueves": { "asignatura_id": "A105", "aula": "Lab Ciencias" },
-      "viernes": { "asignatura_id": "A104", "aula": "Lab Idiomas" }
+      "viernes": { "asignatura_id": "A104", "aula": "Sala 3B" }
     },
     {
       "bloque": "13:45 - 15:15",
-      "lunes": { "asignatura_id": "A110", "aula": "Lab Web" },
-      "martes": { "asignatura_id": "A110", "aula": "Lab Web" },
-      "miercoles": { "asignatura_id": "A111", "aula": "Lab Redes" },
-      "jueves": { "asignatura_id": "A111", "aula": "Lab Redes" },
-      "viernes": { "asignatura_id": "A112", "aula": "Lab Redes" }
+      "lunes": { "asignatura_id": "A108", "aula": "Lab Computación 2" },
+      "martes": { "asignatura_id": "A111", "aula": "Lab Redes y SO" },
+      "miercoles": { "asignatura_id": "A112", "aula": "Lab Redes y SO" },
+      "jueves": { "asignatura_id": "A112", "aula": "Lab Redes y SO" },
+      "viernes": { "asignatura_id": "A114", "aula": "Sala 3B" }
     },
     {
       "bloque": "15:45 - 17:15",
-      "lunes": { "asignatura_id": "A106", "aula": "Gimnasio Techado" },
-      "martes": { "asignatura_id": "A112", "aula": "Lab Redes" },
+      "lunes": { "asignatura_id": "A106", "aula": "Gimnasio" },
+      "martes": { "asignatura_id": "A110", "aula": "Taller Hardware" },
       "miercoles": { "asignatura_id": "A106", "aula": "Multicancha" },
-      "jueves": { "asignatura_id": "A113", "aula": "Lab Seguridad" },
-      "viernes": { "asignatura_id": "A114", "aula": "Taller Hardware" }
+      "jueves": { "asignatura_id": "A113", "aula": "Lab Redes y SO" },
+      "viernes": { "asignatura_id": "A110", "aula": "Taller Hardware" }
     }
   ],
-  "solicitudes": [
+  "solicitudes_estudiantes": [
     {
-      "id": "A7X92",
+      "id": "ADM-792",
       "nombre": "Lucas San Martín",
-      "correo": "lsanmartin@alumnos.jhw.cl",
-      "asignatura": "Servidores Linux",
-      "tipo": "Revisión de nota",
-      "prioridad": "Alta",
-      "fecha": "02/03/2026"
+      "fecha_nacimiento": "2012-05-14",
+      "correo": "lucas.sm@gmail.com",
+      "anio_postulacion": "1° Medio",
+      "estado": "En Revisión",
+      "fecha": "10/03/2026",
+      "motivacion": "He escuchado que tienen muy buenos laboratorios y me gustaría aprender a programar."
     },
     {
-      "id": "B4M15",
+      "id": "ADM-415",
       "nombre": "Valentina Rojas",
-      "correo": "vrojas@alumnos.jhw.cl",
-      "asignatura": "Desarrollo Web FullStack",
-      "tipo": "Justificación",
-      "prioridad": "Media",
-      "fecha": "03/03/2026"
-    },
+      "fecha_nacimiento": "2010-11-22",
+      "correo": "vale.rojas22@yahoo.com",
+      "anio_postulacion": "3° Medio",
+      "estado": "Aceptado",
+      "fecha": "12/03/2026",
+      "motivacion": "Vengo de otro colegio y quiero especializarme en redes y telecomunicaciones."
+    }
+  ],
+  "solicitudes_profesores": [
     {
-      "id": "C9K88",
-      "nombre": "Martín Fuentes",
-      "correo": "mfuentes@alumnos.jhw.cl",
-      "asignatura": "Matemáticas y Álgebra",
-      "tipo": "Certificado",
-      "prioridad": "Baja",
-      "fecha": "04/03/2026"
-    },
-    {
-      "id": "D2Z41",
-      "nombre": "Camila Herrera",
-      "correo": "cherrera@alumnos.jhw.cl",
-      "asignatura": "Ciberseguridad y Redes",
-      "tipo": "Otro",
+      "id": "SOP-101",
+      "profesor": "Dr. Roberto Salazar",
+      "ubicacion": "Taller Hardware",
+      "problema": "El proyector principal no enciende, luz parpadea en rojo.",
       "prioridad": "Alta",
-      "fecha": "05/03/2026"
+      "fecha": "15/03/2026"
+    },
+    {
+      "id": "SOP-102",
+      "profesor": "Lic. Carmen Rojas",
+      "ubicacion": "Sala 3B",
+      "problema": "No hay conexión a internet en el equipo del docente.",
+      "prioridad": "Media",
+      "fecha": "16/03/2026"
     }
   ],
   "notas": [
-    "Recuerden traer pendrive o disco duro externo para las clases de Máquinas Virtuales (Windows/Linux).",
-    "Los talleres de especialidad técnica exigen un 80% de asistencia mínima para aprobar.",
-    "El uso de ropa deportiva es estrictamente obligatorio para los días Lunes y Miércoles en el último bloque."
+    "Uso obligatorio de cotona/delantal en los Módulos de Hardware e Instalación de Redes.",
+    "El Módulo de Emprendimiento y Empleabilidad se evaluará con un proyecto final en noviembre.",
+    "Para Educación Física (Lunes y Miércoles, último bloque) deben traer sus útiles de aseo personal."
   ]
 }

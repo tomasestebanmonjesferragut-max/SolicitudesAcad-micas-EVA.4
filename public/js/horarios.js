@@ -119,9 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ==========================================
+    
     // LÓGICA DEL BOTÓN: MOVER / EDITAR HORARIO
-    // ==========================================
     if(btnMover) {
         btnMover.addEventListener('click', async () => {
             
@@ -204,5 +203,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // EXPORTAR A PDF (Mejorado)
+    // ==========================================
+    const btnExportar = document.querySelector('.bi-printer').closest('button');
+    if (btnExportar) {
+        btnExportar.addEventListener('click', () => {
+            const elementoTabla = document.querySelector('.table-responsive');
+            
+            // Opciones ajustadas para encajar en una sola hoja horizontal
+            const opciones = {
+                margin:       [0.3, 0.3, 0.3, 0.3], // Márgenes pequeños (arriba, izquierda, abajo, derecha)
+                filename:     'Horario_John_H_Watson.pdf',
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { 
+                    scale: 2, 
+                    backgroundColor: '#ffffff', // Fuerza el fondo blanco en el PDF
+                    windowWidth: 1200 // Simula una pantalla ancha para que no se aprieten las columnas
+                },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' } // Formato A4 Horizontal
+            };
+            
+            // Cambiar el texto del botón mientras carga
+            const textoOriginal = btnExportar.innerHTML;
+            btnExportar.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generando...';
+            
+            // TRUCO DE LEGIBILIDAD: Oscurecer temporalmente los textos grises para que se noten en el PDF
+            const textosMuted = elementoTabla.querySelectorAll('.text-muted');
+            textosMuted.forEach(el => el.style.color = '#334155'); // Gris oscuro casi negro
+            
+            // Aumentar el grosor de la fuente de las asignaturas temporalmente
+            const materias = elementoTabla.querySelectorAll('.fw-semibold');
+            materias.forEach(el => el.style.fontWeight = '800');
+
+            // Generar el PDF
+            html2pdf().set(opciones).from(elementoTabla).save().then(() => {
+                
+                // Restaurar el botón y los estilos a la normalidad
+                btnExportar.innerHTML = textoOriginal;
+                textosMuted.forEach(el => el.style.color = '');
+                materias.forEach(el => el.style.fontWeight = '');
+                
+                Swal.fire({
+                    title: '¡Descarga Completa!',
+                    text: 'El horario ha sido guardado en tu equipo.',
+                    icon: 'success',
+                    confirmButtonColor: '#10b981'
+                });
+            });
+        });
+    }
     
 }); 
