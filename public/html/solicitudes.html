@@ -6,16 +6,14 @@
     <meta name="description" content="Instituto John H. Watson - Mesa de Ayuda">
     <title>Trámites | Instituto John H. Watson</title>
     
-    <!-- Rutas apuntando a la carpeta assets externa -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- SweetAlert2 para las notificaciones del JavaScript -->
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <h1><i class="bi bi-mortarboard-fill me-2"></i>Instituto John H. Watson</h1>
         
@@ -55,20 +53,14 @@
         </nav>
     </header>
 
-    <!-- Contenedor Principal (Efecto Cristal) -->
     <main class="container my-5 layout fade-in">
         <div class="row g-4">
-            
-            <!-- Columna Izquierda: Listado y Tabla -->
             <section id="listado" class="col-lg-8">
-                
-                <!-- Cabecera de sección con buscador integrado -->
                 <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3" style="border-color: var(--glass-border) !important;">
                     <h2 class="fw-bold m-0" style="background: var(--primary-gradient); background-clip: text; -webkit-text-fill-color: transparent;">
                         <i class="bi bi-headset me-2 text-primary"></i>Mesa de Ayuda (Tickets)
                     </h2>
                     
-                    <!-- Buscador JS -->
                     <div class="input-group" style="width: 280px; box-shadow: var(--shadow-sm); border-radius: var(--radius-md); overflow: hidden;">
                         <span class="input-group-text bg-white border-0"><i class="bi bi-search text-primary"></i></span>
                         <input type="text" id="buscador" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar ticket por ID o Nombre...">
@@ -81,25 +73,22 @@
                             <tr>
                                 <th>ID Ticket</th>
                                 <th>Usuario</th>
-                                <th>Área/Asignatura</th>
+                                <th>Asignatura</th>
                                 <th>Categoría</th>
                                 <th>Estado</th>
                                 <th>Fecha</th>
                             </tr>
                         </thead>
-                        <!-- JS inyectará las filas aquí -->
                         <tbody id="tablaSolicitudes">
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Columna Derecha: Panel de Acciones -->
             <section class="col-lg-4">
                 <div id="panel" class="d-flex flex-column h-100">
-                    
                     <div class="panel-buttons mb-4">
-                        <button class="btn w-100 mb-3 text-start fw-bold" id="btnRegistrar">
+                        <button class="btn btn-secondary w-100 mb-3 text-start fw-bold" id="btnRegistrar">
                             <div class="d-flex align-items-center">
                                 <div class="bg-primary rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
                                     <i class="bi bi-plus-lg"></i>
@@ -108,7 +97,7 @@
                             </div>
                         </button>
                         
-                        <button class="btn w-100 mb-3 text-start fw-bold" id="btnModificar">
+                        <button class="btn btn-secondary w-100 mb-3 text-start fw-bold" id="btnModificar">
                             <div class="d-flex align-items-center">
                                 <div class="bg-warning rounded-circle p-1 text-dark d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
                                     <i class="bi bi-sliders"></i>
@@ -117,7 +106,7 @@
                             </div>
                         </button>
                         
-                        <button class="btn w-100 text-start fw-bold" id="btnEliminar">
+                        <button class="btn btn-secondary w-100 text-start fw-bold" id="btnEliminar">
                             <div class="d-flex align-items-center">
                                 <div class="bg-danger rounded-circle p-1 text-white d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
                                     <i class="bi bi-trash-fill"></i>
@@ -127,21 +116,17 @@
                         </button>
                     </div>
 
-                    <!-- Contenedor donde el JS inyecta los formularios -->
                     <div id="panelContenido" class="flex-grow-1 p-3 rounded-3" style="background: rgba(255,255,255,0.05); border: 1px dashed var(--glass-border);">
-                        <!-- Mensaje por defecto antes de hacer clic -->
                         <div class="text-center text-muted mt-4 fade-in">
                             <i class="bi bi-terminal-fill fs-1 d-block mb-3 text-primary opacity-50"></i>
                             <span class="fw-medium">Selecciona una acción del menú superior para abrir la consola de gestión.</span>
                         </div>
                     </div>
-                    
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="mt-5 pt-5 border-top" style="border-color: var(--glass-border) !important;">
         <div class="container text-center pb-5">
             <p class="text-muted mb-0">
@@ -151,6 +136,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+    
+    <script src="../js/solicitudes.js"></script>
 </body>
 </html>

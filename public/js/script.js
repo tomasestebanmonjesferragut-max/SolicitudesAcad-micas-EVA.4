@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         obtenerFechaActual() {
-            // Método moderno para formatear fechas
             return new Intl.DateTimeFormat('es-CL', {
                 day: '2-digit',
                 month: '2-digit',
@@ -44,18 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const textoFiltro = filtro.toLowerCase();
 
             this.solicitudes.forEach((solicitud) => {
-                const { id, nombre, correo, asignatura, tipo, prioridad, fecha } = solicitud; // Desestructuración moderna
+                const { id, nombre, correo, asignatura, tipo, prioridad, fecha } = solicitud;
 
                 if (nombre.toLowerCase().includes(textoFiltro) || id.toString().includes(textoFiltro)) {
-                    
-                    // Colores de Bootstrap más modernos para badges
                     const badgeClass = 
                         prioridad === 'Alta' ? 'text-bg-danger' : 
                         prioridad === 'Media' ? 'text-bg-warning' : 
                         'text-bg-info text-white';
 
                     const fila = document.createElement('tr');
-                    fila.className = 'fade-in'; // Agregamos clase de animación
+                    fila.className = 'fade-in';
                     fila.innerHTML = `
                         <td><span class="badge badge-id">#${id}</span></td>
                         <td>
@@ -118,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 const nuevaSolicitud = {
-                    id: crypto.randomUUID().slice(0, 5).toUpperCase(), // UUID más moderno y seguro que Date.now()
+                    id: crypto.randomUUID().slice(0, 5).toUpperCase(),
                     nombre: document.getElementById('nom').value.trim(),
                     correo: document.getElementById('corr').value.trim(),
                     asignatura: document.getElementById('asig').value.trim(),
@@ -226,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         initEvents() {
-            // Manejo seguro de eventos por si algún botón no existe en el DOM
             document.getElementById('btnRegistrar')?.addEventListener('click', () => this.mostrarFormularioRegistro());
             document.getElementById('btnModificar')?.addEventListener('click', () => this.mostrarFormularioModificar());
             document.getElementById('btnEliminar')?.addEventListener('click', () => this.mostrarFormularioEliminar());
