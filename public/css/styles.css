@@ -689,8 +689,8 @@ body.light-mode {
     --bg-primary: #f8fafc;
     --bg-secondary: #ffffff;
     --bg-tertiary: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
+    --text-primary: #004cff;
+    --text-subtle: #475569;
     --text-muted: #64748b;
     --glass-panel: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(59, 130, 246, 0.3);
