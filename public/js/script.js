@@ -1,93 +1,127 @@
-// ==========================================
-    // EXPORTAR A PDF (Formato Clásico / Normal)
+/* =========================================
+   SCRIPT GLOBAL - Instituto John H. Watson
+========================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. ILUMINAR MENÚ ACTIVO
+    const currentUrl = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+        if (link.getAttribute('href') === currentUrl) {
+            link.classList.add('active');
+            if (link.classList.contains('dropdown-item')) {
+                link.closest('.dropdown')?.querySelector('.dropdown-toggle').classList.add('active');
+            }
+        }
+    });
+
+    // 2. MODO CLARO / OSCURO
+    const btnTheme = document.getElementById('btnTheme');
+    const themeIcon = btnTheme?.querySelector('i');
+    
+    // Revisar si ya había elegido modo claro antes
+    if (localStorage.getItem('temaJHW') === 'light') {
+        document.body.classList.add('light-mode');
+        if(themeIcon) themeIcon.className = 'bi bi-moon-stars-fill';
+    }
+
+    btnTheme?.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('temaJHW', 'light');
+            themeIcon.className = 'bi bi-moon-stars-fill';
+        } else {
+            localStorage.setItem('temaJHW', 'dark');
+            themeIcon.className = 'bi bi-sun-fill';
+        }
+    });
+
+    // 3. SIMULADOR DE LOGIN (ADMIN)
+    const btnAdmin = document.getElementById('btnAdmin');
+    let isAdmin = localStorage.getItem('adminJHW') === 'true';
+
+    // Función para mostrar/ocultar botones de edición
+    const actualizarPermisos = () => {
+        const botonesCRUD = document.querySelectorAll('#btnModificar, #btnEliminar, #btnEditarMateria, #btnEditarProf, #btnMoverHorario, #btnAgregarMateria, #btnAgregarProf');
+        botonesCRUD.forEach(btn => {
+            btn.style.display = isAdmin ? 'block' : 'none';
+        });
+        if(btnAdmin) {
+            btnAdmin.innerHTML = isAdmin ? '<i class="bi bi-unlock-fill"></i> Admin' : '<i class="bi bi-lock-fill"></i>';
+            btnAdmin.className = isAdmin ? 'btn btn-danger btn-sm rounded-pill' : 'btn btn-outline-danger btn-sm rounded-pill';
+        }
+    };
+
+    actualizarPermisos(); // Ejecutar al cargar
+
+    btnAdmin?.addEventListener('click', async () => {
+        if (isAdmin) {
+            localStorage.setItem('adminJHW', 'false');
+            isAdmin = false;
+            actualizarPermisos();
+            Swal.fire('Sesión Cerrada', 'Modo lectura activado.', 'info');
+        } else {
+            const { value: password } = await Swal.fire({
+                title: 'Acceso Administrativo',
+                input: 'password',
+                inputPlaceholder: 'Ingresa la clave (es: admin123)',
+                inputAttributes: { autocapitalize: 'off', autocorrect: 'off' }
+            });
+
+            if (password === 'admin123') {
+                localStorage.setItem('adminJHW', 'true');
+                isAdmin = true;
+                actualizarPermisos();
+                Swal.fire('Acceso Concedido', 'Tienes permisos de edición.', 'success');
+            } else if (password) {
+                Swal.fire('Error', 'Contraseña incorrecta.', 'error');
+            }
+        }
+    });
+
+    // 4. ANIMACIONES Y CARRUSEL
+    document.querySelectorAll('.card, .col-md-6 > a > .p-4').forEach((tarjeta, index) => {
+        tarjeta.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    const carouselElement = document.getElementById('carouselExamples');
+    if (carouselElement && window.bootstrap) {
+        new bootstrap.Carousel(carouselElement, { interval: 5000, ride: 'carousel' });
+    }
+
     // ==========================================
+    // 5. EXPORTAR A PDF (Protegido)
+    // ==========================================
+    // Usamos ?. para que no dé error si el botón no existe en la página actual
     const btnExportar = document.querySelector('.bi-printer')?.closest('button');
+    
     if (btnExportar) {
         btnExportar.addEventListener('click', () => {
-            // 1. Clonar la tabla para no romper el diseño oscuro de la página
-            const tablaOriginal = document.querySelector('.table');
-            const tablaClon = tablaOriginal.cloneNode(true);
+            const elementoTabla = document.querySelector('.table-responsive');
             
-            // 2. Crear un contenedor limpio ("hoja de papel en blanco")
-            const contenedorPDF = document.createElement('div');
-            contenedorPDF.style.padding = '20px';
-            contenedorPDF.style.fontFamily = 'Arial, sans-serif';
-            contenedorPDF.style.backgroundColor = '#ffffff';
-            
-            // 3. Añadir el membrete oficial del Liceo
-            contenedorPDF.innerHTML = `
-                <div style="text-align: center; margin-bottom: 20px; border-bottom: 2px solid #000; padding-bottom: 10px;">
-                    <h2 style="margin: 0; color: #000;">Instituto Técnico John H. Watson</h2>
-                    <h4 style="margin: 5px 0 0 0; color: #444;">Horario Académico Semanal</h4>
-                </div>
-            `;
-            
-            // 4. Limpiar los estilos web de la tabla clonada
-            tablaClon.classList.remove('table', 'align-middle'); 
-            tablaClon.style.width = '100%';
-            tablaClon.style.borderCollapse = 'collapse';
-            
-            // 5. Aplicar bordes negros clásicos y texto oscuro a TODAS las celdas
-            const celdas = tablaClon.querySelectorAll('th, td');
-            celdas.forEach(celda => {
-                celda.style.border = '1px solid #000000';
-                celda.style.padding = '12px 8px';
-                celda.style.textAlign = 'center';
-                celda.style.verticalAlign = 'middle';
-                celda.style.color = '#000000'; // Forzar texto negro
-                
-                // Si hay textos secundarios (como el aula), ponerlos en gris oscuro
-                const textosPequeños = celda.querySelectorAll('.text-muted, small');
-                textosPequeños.forEach(txt => {
-                    txt.style.color = '#333333';
-                    txt.style.display = 'block';
-                    txt.style.marginTop = '4px';
-                });
-            });
+            if (!elementoTabla) return; // Si no hay tabla, no hace nada
 
-            // 6. Fondo gris claro para los encabezados (Días de la semana)
-            const encabezados = tablaClon.querySelectorAll('th');
-            encabezados.forEach(th => {
-                th.style.backgroundColor = '#e2e8f0';
-                th.style.fontWeight = 'bold';
-                th.style.color = '#000000';
-            });
-
-            // 7. Ajustar las pastillas de colores para que destaquen en el papel
-            const badges = tablaClon.querySelectorAll('.badge');
-            badges.forEach(badge => {
-                badge.style.display = 'inline-block';
-                badge.style.padding = '6px 10px';
-                badge.style.borderRadius = '4px';
-                badge.style.fontSize = '13px';
-                badge.style.fontWeight = 'bold';
-            });
-
-            // Agregamos la tabla limpia al contenedor
-            contenedorPDF.appendChild(tablaClon);
-
-            // Opciones de configuración de PDF
             const opciones = {
-                margin:       0.4,
-                filename:     'Horario_Clases_JHW.pdf',
-                image:        { type: 'jpeg', quality: 1 },
+                margin:       1,
+                filename:     'Horario_Academico_JHW.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2 },
                 jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
             };
             
-            // Efecto de carga en el botón
+            // Animación de carga mientras genera
             const textoOriginal = btnExportar.innerHTML;
-            btnExportar.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generando PDF...';
+            btnExportar.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generando...';
             
-            // Generar y descargar el PDF desde el contenedor limpio, NO desde la pantalla
-            html2pdf().set(opciones).from(contenedorPDF).save().then(() => {
-                btnExportar.innerHTML = textoOriginal;
-                Swal.fire({
-                    title: '¡Descarga Completa!',
-                    text: 'El horario ha sido guardado con formato de impresión clásico.',
-                    icon: 'success',
-                    confirmButtonColor: '#10b981'
+            // Asegurarnos de que la librería HTML2PDF exista antes de llamarla
+            if (typeof html2pdf !== 'undefined') {
+                html2pdf().set(opciones).from(elementoTabla).save().then(() => {
+                    btnExportar.innerHTML = textoOriginal;
+                    Swal.fire('¡Éxito!', 'El horario se ha descargado en tu equipo.', 'success');
                 });
-            });
+            } else {
+                btnExportar.innerHTML = textoOriginal;
+                Swal.fire('Error', 'No se ha cargado la librería de PDF.', 'error');
+            }
         });
     }
+});
