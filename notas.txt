@@ -1,18 +1,18 @@
-# 📋 ANÁLISIS Y PROPUESTA DE MEJORAS
+#  ANÁLISIS Y PROPUESTA DE MEJORAS
 ## Sistema de Solicitudes Académicas - Instituto John H. Watson
 
 ---
 
-## 🔍 ANÁLISIS DEL CÓDIGO ACTUAL
+## ANÁLISIS DEL CÓDIGO ACTUAL
 
-### ✅ Fortalezas:
+###  Fortalezas:
 - **Diseño oscuro moderno** con tema consistent
 - **Carrusel dinámico** funcional y fluido
 - **Estructura HTML semántica** correcta
 - **Efectos visuales** atractivos (glassmorphism, gradientes)
 - **Responsive básico** implementado
 
-### ⚠️ Áreas de Mejora:
+### Áreas de Mejora:
 
 #### 1. **Estructura del Proyecto**
 - Falta modularización de componentes
@@ -45,7 +45,7 @@
 
 ---
 
-## 📊 PROPUESTA DE ESTRUCTURA MEJORADA
+## PROPUESTA DE ESTRUCTURA MEJORADA
 
 ```
 Instituto-JHW/
@@ -85,7 +85,7 @@ Instituto-JHW/
 
 ---
 
-## 🎯 NUEVAS PÁGINAS RECOMENDADAS
+## NUEVAS PÁGINAS RECOMENDADAS
 
 ### 1. **Solicitudes Académicas** (Mejorada)
 - Formulario CRUD completo
@@ -130,7 +130,7 @@ Instituto-JHW/
 
 ---
 
-## 🚀 MEJORAS CLAVE A IMPLEMENTAR
+##  MEJORAS CLAVE A IMPLEMENTAR
 
 ### 1. **Sistema de Almacenamiento**
 ```javascript
@@ -177,7 +177,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 📱 MEJORAS RESPONSIVE
+##  MEJORAS RESPONSIVE
 
 ### Breakpoints:
 - **Mobile**: 320px - 480px
@@ -193,7 +193,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 🎨 PALETA DE COLORES MEJORADA
+##  PALETA DE COLORES MEJORADA
 
 ```css
 :root {
@@ -219,7 +219,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## ✨ NUEVAS FUNCIONALIDADES
+##  NUEVAS FUNCIONALIDADES
 
 1. **Dark Mode / Light Mode Toggle**
 2. **Sistema de Notificaciones (Toast)**
@@ -232,7 +232,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 🔒 SEGURIDAD
+##  SEGURIDAD
 
 - [ ] Validar entrada en servidor (futuro backend)
 - [ ] Sanitizar datos
@@ -243,7 +243,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 📈 MÉTRICAS DE ÉXITO
+##  MÉTRICAS DE ÉXITO
 
 - **Velocidad de carga**: < 3s (Core Web Vitals)
 - **LCP**: < 2.5s
@@ -254,7 +254,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 🔄 CRONOGRAMA DE IMPLEMENTACIÓN
+##  CRONOGRAMA DE IMPLEMENTACIÓN
 
 **Fase 1 (Semana 1)**: Estructura de proyecto, nuevas páginas
 **Fase 2 (Semana 2)**: Sistema CRUD completo, validaciones
@@ -263,7 +263,7 @@ DELETE: Confirmación antes de eliminar
 
 ---
 
-## 📝 PRÓXIMOS PASOS
+##  PRÓXIMOS PASOS
 
 1. Implementar estructura de carpetas propuesta
 2. Crear páginas HTML nuevas
