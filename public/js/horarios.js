@@ -203,9 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // EXPORTAR A PDF (Mejorado)
-    // ==========================================
+    // EXPORTAR A PDF
     const btnExportar = document.querySelector('.bi-printer').closest('button');
     if (btnExportar) {
         btnExportar.addEventListener('click', () => {
@@ -253,5 +251,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    
 }); 

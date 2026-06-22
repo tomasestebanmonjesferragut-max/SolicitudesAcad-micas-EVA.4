@@ -20,14 +20,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto gap-1">
-                        <!-- 1. Admisión -->
                         <li class="nav-item">
                             <a class="nav-link" href="solicitudes.html">
                                 <i class="bi bi-person-lines-fill me-1"></i>Admisión
                             </a>
                         </li>
                         
-                        <!-- 2. Servicios (Desplegable) -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-tools me-1"></i>Servicios
@@ -39,21 +37,18 @@
                             </ul>
                         </li>
 
-                        <!-- 3. Soporte Docente (NUEVO LUGAR, FUERA DEL DESPLEGABLE) -->
                         <li class="nav-item">
                             <a class="nav-link" href="solicitudesProfesores.html">
                                 <i class="bi bi-pc-display me-1"></i>Soporte
                             </a>
                         </li>
 
-                        <!-- 4. Directorio -->
                         <li class="nav-item">
                             <a class="nav-link" href="informacion.html">
                                 <i class="bi bi-info-circle-fill me-1"></i>Directorio
                             </a>
                         </li>
 
-                        <!-- Botón Tema y Login -->
                         <li class="nav-item ms-lg-3 d-flex align-items-center">
                             <button id="btnTheme" class="btn btn-outline-primary btn-sm rounded-circle me-2" aria-label="Cambiar tema">
                                 <i class="bi bi-sun-fill"></i>
@@ -63,6 +58,7 @@
                             </button>
                         </li>
                     </ul>
+                    
                 </div>
             </div>
         </nav>
@@ -71,16 +67,26 @@
     <main class="container my-5 layout fade-in">
         <div class="row g-4">
             <section id="listado" class="col-lg-8">
-                <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3" style="border-color: var(--glass-border) !important;">
-                    <h2 class="fw-bold m-0" style="background: var(--primary-gradient); background-clip: text; -webkit-text-fill-color: transparent;">
+                
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 border-bottom pb-3" style="border-color: var(--glass-border) !important;">
+                    <h2 class="fw-bold m-0 mb-3 mb-md-0" style="background: var(--primary-gradient); background-clip: text; -webkit-text-fill-color: transparent;">
                         <i class="bi bi-pc-display-horizontal me-2 text-primary"></i>Soporte Técnico Docente
                     </h2>
-                    <div class="input-group" style="width: 280px; box-shadow: var(--shadow-sm); border-radius: var(--radius-md); overflow: hidden;">
-                        <span class="input-group-text bg-white border-0"><i class="bi bi-search text-primary"></i></span>
-                        <input type="text" id="buscador" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar ticket...">
+                    
+                    <div class="d-flex gap-2">
+                        <select id="filtroPrioridad" class="form-select border-0 shadow-sm text-muted" style="width: 170px; border-radius: var(--radius-md);">
+                            <option value="Todas">Todas las prioridades</option>
+                            <option value="Alta">Prioridad Alta</option>
+                            <option value="Media">Prioridad Media</option>
+                            <option value="Baja">Prioridad Baja</option>
+                        </select>
+
+                        <div class="input-group" style="width: 280px; box-shadow: var(--shadow-sm); border-radius: var(--radius-md); overflow: hidden;">
+                            <span class="input-group-text bg-white border-0"><i class="bi bi-search text-primary"></i></span>
+                            <input type="text" id="buscador" class="form-control border-0 bg-white shadow-none ps-0" placeholder="Buscar ticket...">
+                        </div>
                     </div>
                 </div>
-
                 <div class="table-responsive">
                     <table class="table align-middle">
                         <thead>

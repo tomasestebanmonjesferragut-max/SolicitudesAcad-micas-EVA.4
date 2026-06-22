@@ -41,10 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         guardarDatos() {
             localStorage.setItem('institutoDB', JSON.stringify(db));
-            this.actualizarTabla();
+            // Mantiene los filtros actuales al actualizar (agregar/borrar)
+            const textoActual = document.getElementById('buscador')?.value || '';
+            const prioridadActual = document.getElementById('filtroPrioridad')?.value || 'Todas';
+            this.actualizarTabla(textoActual, prioridadActual);
         }
 
-        actualizarTabla(filtro = '') {
+        actualizarTabla(filtroTexto = '', filtroPrioridad = 'Todas') {
             this.tabla.innerHTML = '';
             
             if (!db.solicitudes_profesores || db.solicitudes_profesores.length === 0) {
@@ -52,19 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const textoFiltro = filtro.toLowerCase();
+            const textoFiltro = filtroTexto.toLowerCase();
             
             db.solicitudes_profesores.forEach((ticket) => {
                 const { id, profesor, ubicacion, problema, prioridad, fecha } = ticket;
 
-                if (profesor.toLowerCase().includes(textoFiltro) || id.toLowerCase().includes(textoFiltro)) {
+                // 1. Verificamos si coincide el texto
+                const coincideTexto = profesor.toLowerCase().includes(textoFiltro) || id.toLowerCase().includes(textoFiltro);
+                
+                // 2. Verificamos si coincide la prioridad elegida en el selector
+                const coincidePrioridad = (filtroPrioridad === 'Todas') || (prioridad === filtroPrioridad);
+
+                // Solo renderizamos si cumple AMBAS condiciones
+                if (coincideTexto && coincidePrioridad) {
                     let badgeClass = 'text-bg-info text-white';
                     if(prioridad === 'Alta') badgeClass = 'text-bg-danger';
                     if(prioridad === 'Media') badgeClass = 'text-bg-warning';
                     
                     const fila = document.createElement('tr');
                     fila.className = 'fade-in';
-                    fila.style.cursor = 'pointer'; // Cambia el cursor a una mano
+                    fila.style.cursor = 'pointer'; 
                     fila.title = 'Haz clic para leer el reporte completo';
                     
                     fila.innerHTML = `
@@ -79,15 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td class="text-muted small">${fecha}</td>
                     `;
                     
-                    // Evento CLIC para ver los detalles en grande
                     fila.addEventListener('click', () => this.verDetalles(ticket, badgeClass));
-                    
                     this.tabla.appendChild(fila);
                 }
             });
         }
 
-        // NUEVA FUNCIÓN: Muestra la información en grande
         verDetalles(ticket, badgeClass) {
             Swal.fire({
                 title: `<i class="bi bi-pc-display-horizontal text-danger me-2"></i>Detalles del Reporte`,
@@ -109,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `,
                 width: '600px',
                 confirmButtonText: 'Cerrar',
-                confirmButtonColor: '#ef4444', // Botón rojo a juego con el soporte técnico
+                confirmButtonColor: '#ef4444',
                 background: 'var(--bg-secondary)',
                 color: 'var(--text-secondary)'
             });
@@ -239,11 +246,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Única función initEvents fusionada
         initEvents() {
+            // Eventos de los botones del panel lateral
             document.getElementById('btnRegistrar')?.addEventListener('click', () => this.mostrarFormularioRegistro());
             document.getElementById('btnModificar')?.addEventListener('click', () => this.mostrarFormularioModificar());
             document.getElementById('btnEliminar')?.addEventListener('click', () => this.mostrarFormularioEliminar());
-            document.getElementById('buscador')?.addEventListener('input', (e) => this.actualizarTabla(e.target.value));
+            
+            const buscador = document.getElementById('buscador');
+            const filtroSelect = document.getElementById('filtroPrioridad');
+
+            // Evento para cuando se escribe en el buscador de texto
+            buscador?.addEventListener('input', () => {
+                this.actualizarTabla(buscador.value, filtroSelect ? filtroSelect.value : 'Todas');
+            });
+
+            // Evento para cuando se cambia el filtro de prioridad (NUEVO)
+            filtroSelect?.addEventListener('change', () => {
+                this.actualizarTabla(buscador ? buscador.value : '', filtroSelect.value);
+            });
         }
     }
 });
