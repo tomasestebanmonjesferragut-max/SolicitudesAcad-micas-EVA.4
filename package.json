@@ -1,19 +1,27 @@
 {
-  "name": "solicitudesacad-micas-eva.4",
+  "name": "aula-virtual-instituto-watson",
   "version": "1.0.0",
-  "description": "Un sistema web responsivo y moderno para la gestión de solicitudes académicas, plana docente, asignaturas y soporte técnico del instituto.",
-  "main": "index.js",
+  "description": "Sistema de Gestión de Aula Virtual - Instituto John H. Watson",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "aula-virtual",
+    "educacion",
+    "instituto",
+    "anuncios",
+    "asignaturas"
+  ],
+  "author": "Instituto John H. Watson",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomasestebanmonjesferragut-max/SolicitudesAcad-micas-EVA.4.git"
+    "url": "https://github.com/tomasestebanmonjesferragut-max/SolicitudesAcad-micas-EVA.4.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/tomasestebanmonjesferragut-max/SolicitudesAcad-micas-EVA.4/issues"
   },
@@ -22,5 +30,12 @@
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "mysql2": "^3.22.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }

@@ -1,54 +1,78 @@
-/* =========================================
-   ACADEMIA PRO - Portal Académico Profesional
-   Tema Oscuro con Máxima Legibilidad
-========================================= */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AULA VIRTUAL - ESTILOS PROFESIONALES COMPLETOS
+   Instituto John H. Watson
+   Versión: 2.0.0 | Tema: Oscuro Premium | Responsive: 100%
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   1. VARIABLES RAÍZ - PALETA DE COLORES PROFESIONAL
+═══════════════════════════════════════════════════════════════════════════════ */
 
 :root {
-    /* Paleta Profesional - Colores Corporativos */
-    --bg-primary: #0f1419;     /* Negro azulado */
-    --bg-secondary: #1a202c;   /* Azul oscuro */
-    --bg-tertiary: #2d3748;    /* Gris azulado */
-    
-    /* Acentos Profesionales */
-    --accent-primary: #3b82f6; /* Azul profesional */
-    --accent-secondary: #06b6d4; /* Teal */
-    --accent-tertiary: #8b5cf6; /* Púrpura */
-    --accent-success: #10b981;  /* Verde */
-    --accent-warning: #f59e0b;  /* Ámbar */
-    --accent-danger: #ef4444;   /* Rojo */
-    
+    /* Fondos - Tema Oscuro Profesional */
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a202c;
+    --bg-tertiary: #2d3748;
+    --bg-quaternary: #3d444f;
+
+    /* Colores de Marca - Acentos Corporativos */
+    --color-primary: #3b82f6;
+    --color-secondary: #06b6d4;
+    --color-tertiary: #8b5cf6;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #0ea5e9;
+
     /* Gradientes Premium */
-    --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-    --secondary-gradient: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-    --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-    
-    /* Efecto Cristal Profesional */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+    /* Efectos Glassmorphism */
     --glass-panel: rgba(26, 32, 44, 0.7);
     --glass-border: rgba(59, 130, 246, 0.2);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     --glass-inset: inset 0 2px 4px rgba(255, 255, 255, 0.05);
-    
-    /* Tipografía - MÁXIMO CONTRASTE */
-    --text-primary: #89c4ff;   /* Blanco brillante */
-    --text-secondary: #cbd5e1; /* Gris claro */
-    --text-muted: #94a3b8;     /* Gris medio */
-    --text-subtle: #64748b;    /* Gris oscuro */
-    
+
+    /* Tipografía - Alto Contraste */
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-subtle: #64748b;
+
     /* Espaciado y Bordes */
-    --radius-xl: 16px;
-    --radius-lg: 12px;
-    --radius-md: 8px;
+    --radius-xs: 2px;
     --radius-sm: 4px;
-    
-    /* Sombras */
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+
+    /* Sombras Profesionales */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.6);
+
+    /* Transiciones */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-Index */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-modal: 1060;
+    --z-tooltip: 1070;
 }
 
-/* =========================================
-   RESET Y ESTILOS GLOBALES
-========================================= */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   2. RESET Y ESTILOS GLOBALES
+═══════════════════════════════════════════════════════════════════════════════ */
+
 * {
     margin: 0;
     padding: 0;
@@ -57,39 +81,44 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-primary);
-    background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
     color: var(--text-secondary);
     line-height: 1.6;
+    letter-spacing: 0.3px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
 }
 
-/* =========================================
-   TIPOGRAFÍA
-========================================= */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   3. TIPOGRAFÍA PROFESIONAL
+═══════════════════════════════════════════════════════════════════════════════ */
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 0.5em;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 800;
 }
 
 h2 {
-    font-size: 2rem;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
 }
 
 h3 {
@@ -104,54 +133,77 @@ h5 {
     font-size: 1.1rem;
 }
 
-p, li, label, button {
+h6 {
+    font-size: 1rem;
+}
+
+p {
     color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
 a {
-    color: var(--accent-primary);
+    color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-base);
 }
 
 a:hover {
-    color: var(--accent-secondary);
+    color: var(--color-secondary);
+    text-decoration: underline;
 }
 
-strong {
+strong, .fw-bold {
     color: var(--text-primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
-small, .text-muted {
+small, .text-muted, .text-secondary {
     color: var(--text-muted) !important;
 }
 
-/* =========================================
-   HEADER Y NAVEGACIÓN
-========================================= */
+em {
+    color: var(--color-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   4. HEADER Y NAVEGACIÓN
+═══════════════════════════════════════════════════════════════════════════════ */
+
 header {
     background: linear-gradient(to bottom, 
-        rgba(15, 20, 25, 0.95), 
-        rgba(15, 20, 25, 0.8));
+        rgba(15, 20, 25, 0.98), 
+        rgba(15, 20, 25, 0.85));
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     padding: 1.5rem 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: var(--z-sticky);
     box-shadow: var(--shadow-md);
 }
 
 header h1 {
-    background: var(--primary-gradient);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 2.2rem;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
+    animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar {
@@ -162,14 +214,14 @@ header h1 {
 }
 
 .navbar-brand {
-    color: var(--accent-primary) !important;
+    color: var(--color-primary) !important;
     font-weight: 800;
     font-size: 1.3rem;
-    transition: all 0.2s ease;
+    transition: all var(--transition-base);
 }
 
 .navbar-brand:hover {
-    color: var(--accent-secondary) !important;
+    color: var(--color-secondary) !important;
     transform: scale(1.05);
 }
 
@@ -179,13 +231,13 @@ header h1 {
     letter-spacing: 0.5px;
     padding: 0.5rem 1rem !important;
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
+    transition: all var(--transition-base);
     position: relative;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--accent-primary) !important;
+    color: var(--color-primary) !important;
     background: rgba(59, 130, 246, 0.1);
 }
 
@@ -197,8 +249,16 @@ header h1 {
     transform: translateX(-50%);
     width: 80%;
     height: 2px;
-    background: var(--primary-gradient);
+    background: var(--gradient-primary);
     border-radius: 1px;
+}
+
+.navbar-toggler {
+    border-color: var(--glass-border) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25) !important;
 }
 
 .dropdown-menu {
@@ -211,82 +271,303 @@ header h1 {
 .dropdown-item {
     color: var(--text-secondary);
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all var(--transition-base);
 }
 
 .dropdown-item:hover,
 .dropdown-item.active {
     background: rgba(59, 130, 246, 0.15);
-    color: var(--accent-primary);
+    color: var(--color-primary);
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL
-========================================= */
-main.container {
-    max-width: 1200px;
-    margin: 3rem auto;
-}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   5. CONTENEDOR PRINCIPAL
+═══════════════════════════════════════════════════════════════════════════════ */
 
-.layout {
+main {
     animation: fadeInUp 0.6s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.container, .container-fluid {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.fade-in {
-    animation: fadeInUp 0.4s ease;
-}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   6. TARJETAS Y PANELES (PRINCIPAL)
+═══════════════════════════════════════════════════════════════════════════════ */
 
-/* =========================================
-   TARJETAS Y PANELES
-========================================= */
-.card, .p-4.h-100, .p-4 {
+.card, .panel-glass {
     background: var(--glass-panel);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
 }
 
-.card:hover, .p-4.h-100:hover, .p-4:hover {
+.card:hover, .panel-glass:hover {
     transform: translateY(-4px);
-    border-color: var(--accent-primary);
+    border-color: var(--color-primary);
     box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
 }
 
-/* =========================================
-   BOTONES
-========================================= */
+.card-header {
+    background: rgba(59, 130, 246, 0.05);
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-footer {
+    background: rgba(59, 130, 246, 0.02);
+    border-top: 1px solid var(--glass-border);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   7. SECCIÓN DE ANUNCIOS (AULA VIRTUAL)
+═══════════════════════════════════════════════════════════════════════════════ */
+
+#contenedorAnuncios {
+    margin-bottom: 3rem;
+}
+
+.anuncio-card {
+    border-left: 4px solid var(--color-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.anuncio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.anuncio-card:hover::before {
+    opacity: 1;
+}
+
+.anuncio-titulo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.anuncio-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.anuncio-fecha {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.anuncio-contenido {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 1.5rem 0;
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.anuncio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.anuncio-acciones {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 1rem;
+}
+
+.btn-like {
+    transition: transform var(--transition-fast);
+}
+
+.btn-like:active i {
+    animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   8. SECCIÓN DE ASIGNATURAS (MATERIAS)
+═══════════════════════════════════════════════════════════════════════════════ */
+
+#contenedorMateriasAula {
+    display: grid;
+    /* Aumentamos el mínimo a 300px para asegurar espacio al texto */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.materia-card {
+    padding: 1.25rem !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.materia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.materia-card:hover::before {
+    transform: scaleX(1);
+}
+
+.materia-codigo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.materia-nombre {
+    font-size: 1.05rem !important; 
+    margin: 0.5rem 0 !important;
+    white-space: nowrap; /* Evita que el nombre se corte */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Pone puntos suspensivos si es muy largo */
+}
+
+.materia-profesor {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   9. SECCIÓN DE PROFESORES (DIRECTORIO)
+═══════════════════════════════════════════════════════════════════════════════ */
+
+#contenedorProfesoresContacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.profesor-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.profesor-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-primary);
+    opacity: 0.05;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+.profesor-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.profesor-nombre {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.profesor-departamento {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profesor-contacto {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.profesor-contacto li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   10. BOTONES PROFESIONALES
+═══════════════════════════════════════════════════════════════════════════════ */
+
 .btn {
     font-weight: 600;
     border-radius: var(--radius-md);
     border: none;
     padding: 0.6rem 1.5rem;
-    transition: all 0.2s ease;
+    transition: all var(--transition-base);
     cursor: pointer;
     letter-spacing: 0.3px;
     box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
 }
 
 .btn:focus {
-    outline: 2px solid var(--accent-primary);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
+/* Botón Primary */
 .btn-primary {
-    background: var(--primary-gradient);
-    color: #fff;
+    background: var(--gradient-primary);
+    color: white;
 }
 
 .btn-primary:hover {
@@ -298,6 +579,7 @@ main.container {
     transform: translateY(0);
 }
 
+/* Botón Secondary */
 .btn-secondary {
     background: var(--bg-tertiary);
     color: var(--text-primary);
@@ -306,52 +588,94 @@ main.container {
 
 .btn-secondary:hover {
     background: rgba(59, 130, 246, 0.1);
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
+/* Botón Success */
+.btn-success {
+    background: var(--gradient-success);
+    color: white;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* Botón Warning */
 .btn-warning {
-    background: var(--accent-warning);
-    color: #fff;
+    background: var(--color-warning);
+    color: white;
 }
 
 .btn-warning:hover {
     background: #d97706;
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(245, 158, 11, 0.4);
 }
 
+/* Botón Danger */
 .btn-danger {
-    background: var(--accent-danger);
-    color: #fff;
+    background: var(--color-danger);
+    color: white;
 }
 
 .btn-danger:hover {
     background: #dc2626;
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.4);
 }
 
-.btn-success {
-    background: var(--accent-success);
-    color: #fff;
+/* Botón Outline */
+.btn-outline-primary {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    background: transparent;
 }
 
-.btn-success:hover {
-    background: #059669;
-    transform: translateY(-2px);
+.btn-outline-primary:hover {
+    background: var(--color-primary);
+    color: white;
 }
 
-/* =========================================
-   INPUTS Y FORMULARIOS
-========================================= */
+.btn-link {
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+/* Botón Pequeño */
+.btn-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Botón Grande */
+.btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Botón Rounded */
+.btn-rounded-pill {
+    border-radius: 50px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   11. FORMULARIOS Y INPUTS
+═══════════════════════════════════════════════════════════════════════════════ */
+
 .form-control,
 .form-select,
-.input-group-text {
+textarea.form-control {
     background: var(--bg-secondary);
     border: 1px solid var(--glass-border);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     border-radius: var(--radius-md);
-    padding: 0.8rem 1rem;
-    transition: all 0.2s ease;
+    padding: 0.75rem 1rem;
+    transition: all var(--transition-base);
+    font-size: 1rem;
+    font-family: inherit;
 }
 
 .form-control::placeholder {
@@ -360,29 +684,92 @@ main.container {
 
 .form-control:focus,
 .form-select:focus {
-    background: var(--bg-secondary);
-    border-color: var(--accent-primary);
+    background: rgba(26, 32, 44, 0.9);
+    border-color: var(--color-primary);
     color: var(--text-primary);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
 }
 
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-select:focus ~ label {
-    color: var(--accent-primary);
+    color: var(--color-primary);
 }
 
 .form-floating > label {
     color: var(--text-muted);
+    padding: 1rem 0.75rem;
 }
 
 .input-group-text {
     background: var(--bg-secondary);
     border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
 }
 
-/* =========================================
-   TABLAS
-========================================= */
+.form-check-input {
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-base);
+}
+
+.form-check-input:checked {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.form-check-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   12. BADGES Y ETIQUETAS
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.badge {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    letter-spacing: 0.3px;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.badge-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.badge-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.badge-success {
+    background: var(--color-success);
+    color: white;
+}
+
+.badge-warning {
+    background: var(--color-warning);
+    color: white;
+}
+
+.badge-danger {
+    background: var(--color-danger);
+    color: white;
+}
+
+.badge-info {
+    background: var(--color-info);
+    color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   13. TABLAS
+═══════════════════════════════════════════════════════════════════════════════ */
+
 .table {
     color: var(--text-secondary);
     border-collapse: separate;
@@ -405,13 +792,14 @@ main.container {
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-sm);
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
+    transition: all var(--transition-base);
 }
 
 .table tbody tr:hover {
     background: rgba(59, 130, 246, 0.08);
-    border-color: var(--accent-primary);
+    border-color: var(--color-primary);
     box-shadow: 0 6px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
 }
 
 .table td {
@@ -434,54 +822,10 @@ main.container {
     color: var(--text-primary);
 }
 
-/* =========================================
-   BADGES
-========================================= */
-.badge {
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
-    letter-spacing: 0.3px;
-}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   14. PROGRESO Y BARRAS
+═══════════════════════════════════════════════════════════════════════════════ */
 
-.badge-id {
-    background: var(--accent-primary);
-    color: #fff;
-}
-
-.text-bg-primary {
-    background: var(--accent-primary) !important;
-    color: #fff !important;
-}
-
-.text-bg-secondary {
-    background: var(--bg-tertiary) !important;
-    color: var(--text-primary) !important;
-}
-
-.text-bg-success {
-    background: var(--accent-success) !important;
-    color: #fff !important;
-}
-
-.text-bg-warning {
-    background: var(--accent-warning) !important;
-    color: #fff !important;
-}
-
-.text-bg-danger {
-    background: var(--accent-danger) !important;
-    color: #fff !important;
-}
-
-.text-bg-info {
-    background: var(--accent-secondary) !important;
-    color: #fff !important;
-}
-
-/* =========================================
-   PROGRESO
-========================================= */
 .progress {
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
@@ -490,61 +834,118 @@ main.container {
 }
 
 .progress-bar {
-    background: var(--primary-gradient);
+    background: var(--gradient-primary);
     border-radius: var(--radius-md);
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    transition: width var(--transition-slow);
 }
 
-/* =========================================
-   CAROUSEL
-========================================= */
-.carousel-modern-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   15. MODALES Y ALERTAS
+═══════════════════════════════════════════════════════════════════════════════ */
 
-.carousel {
-    border-radius: var(--radius-xl);
-}
-
-.carousel-inner {
-    border-radius: var(--radius-xl);
-}
-
-.carousel-item {
-    min-height: 400px;
-}
-
-.carousel-item img {
-    object-fit: cover;
-    height: 100%;
-}
-
-.glass-caption {
-    background: linear-gradient(to top, rgba(15, 20, 25, 0.9), transparent);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-xl);
     border-radius: var(--radius-lg);
-    padding: 2rem;
 }
 
-.glass-caption h5 {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 0.5rem;
+.modal-header {
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(59, 130, 246, 0.05);
 }
 
-.glass-caption p {
+.modal-body {
     color: var(--text-secondary);
 }
 
-/* =========================================
-   DIVISORES
-========================================= */
-.border-bottom {
+.modal-footer {
+    border-top: 1px solid var(--glass-border);
+}
+
+.alert {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+}
+
+.alert-primary {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-warning);
+    border-color: var(--color-warning);
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   16. FOOTER
+═══════════════════════════════════════════════════════════════════════════════ */
+
+footer {
+    background: rgba(15, 20, 25, 0.8);
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
+    padding: 2rem 0;
+    color: var(--text-muted);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--color-primary);
+}
+
+footer a:hover {
+    color: var(--color-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   17. ICONOS
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.bi {
+    transition: all var(--transition-base);
+    display: inline-block;
+}
+
+button .bi,
+a .bi {
+    margin-right: 0.5rem;
+}
+
+.bi-heart-fill {
+    color: var(--color-danger);
+}
+
+.bi-star-fill {
+    color: var(--color-warning);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   18. DIVISORES Y BORDES
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.border-bottom,
+.border-top {
     border-color: var(--glass-border) !important;
 }
 
@@ -554,119 +955,131 @@ hr {
     margin: 2rem 0;
 }
 
-/* =========================================
-   EFECTOS ESPECIALES
-========================================= */
-.text-dark {
-    color: #ffffff !important; /* Blanco puro para resaltar en el panel oscuro */
-}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   19. ANIMACIONES Y TRANSICIONES
+═══════════════════════════════════════════════════════════════════════════════ */
 
-/* Y asegúrate de agregar esto al final de tu archivo, dentro de la sección de TEMA CLARO */
-body.light-mode .text-dark {
-    color: #0f172a !important; /* Gris casi negro para máxima legibilidad en fondo claro */
-}
-.bg-white.rounded-circle {
-    background: var(--bg-secondary) !important;
-    border: 2px solid var(--glass-border);
-}
-
-/* =========================================
-   ICONOS
-========================================= */
-.bi {
-    transition: all 0.2s ease;
-}
-
-button .bi,
-a .bi {
-    margin-right: 0.5rem;
-}
-
-/* =========================================
-   MEDIA QUERIES - RESPONSIVE
-========================================= */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-
-    main.container {
-        margin: 1.5rem auto;
-    }
-
-    .table {
-        font-size: 0.9rem;
-    }
-
-    .table td, .table th {
-        padding: 0.75rem !important;
-    }
-
-    .carousel-item {
-        min-height: 300px;
-    }
-
-    .glass-caption {
-        padding: 1.5rem;
+    to {
+        opacity: 1;
     }
 }
 
-@media (max-width: 576px) {
-    header {
-        padding: 1rem 0;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    header h1 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    main.container {
-        margin: 1rem auto;
-        padding: 0 1rem;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.3rem;
-    }
-
-    .carousel-item {
-        min-height: 250px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* =========================================
-   ACCESIBILIDAD
-========================================= */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-/* Foco visible para navegación por teclado */
-*:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-/* =========================================
-   SCROLLBAR PERSONALIZADA
-========================================= */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeIn var(--transition-base);
+}
+
+.fade-in-up {
+    animation: fadeInUp var(--transition-base);
+}
+
+.slide-in-left {
+    animation: slideInLeft var(--transition-base);
+}
+
+.slide-in-right {
+    animation: slideInRight var(--transition-base);
+}
+
+.scale-in {
+    animation: scaleIn var(--transition-base);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   20. ESTADO VACÍO
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--text-subtle);
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   21. SKELETON LOADING
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.skeleton {
+    background: linear-gradient(90deg, 
+        var(--bg-tertiary) 25%, 
+        var(--bg-quaternary) 50%, 
+        var(--bg-tertiary) 75%);
+    background-size: 200% 100%;
+    animation: loading 2s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   22. SCROLLBAR PERSONALIZADA
+═══════════════════════════════════════════════════════════════════════════════ */
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -677,27 +1090,204 @@ a .bi {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent-primary);
+    background: var(--color-primary);
     border-radius: 5px;
     border: 2px solid var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-secondary);
+    background: var(--color-secondary);
 }
 
-/* =========================================
-   TEMA CLARO (LIGHT MODE)
-========================================= */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   23. RESPONSIVE DESIGN
+═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #contenedorMateriasAula,
+    #contenedorProfesoresContacto {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    main {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .table td, .table th {
+        padding: 0.75rem !important;
+    }
+
+    #contenedorMateriasAula,
+    #contenedorProfesoresContacto {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .anuncio-acciones {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        padding: 0.75rem 0;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+    }
+
+    main {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .container, .container-fluid {
+        padding: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.95rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .empty-state i {
+        font-size: 2rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   24. ACCESIBILIDAD
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Reducir animaciones para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible para navegación por teclado */
+*:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Alto contraste */
+@media (prefers-contrast: more) {
+    body {
+        --text-secondary: #e2e8f0;
+        --text-muted: #cbd5e1;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   25. TEMA CLARO (LIGHT MODE)
+═══════════════════════════════════════════════════════════════════════════════ */
+
 body.light-mode {
     --bg-primary: #f8fafc;
     --bg-secondary: #ffffff;
     --bg-tertiary: #e2e8f0;
+    --bg-quaternary: #cbd5e1;
+    
     --text-primary: #004cff;
-    --text-subtle: #475569;
+    --text-secondary: #334155;
     --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+    
     --glass-panel: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(59, 130, 246, 0.3);
+}
+
+body.light-mode header {
+    background: linear-gradient(to bottom, 
+        rgba(248, 250, 252, 0.98), 
+        rgba(248, 250, 252, 0.85));
 }
 
 body.light-mode .table tbody tr:hover {
@@ -705,5 +1295,68 @@ body.light-mode .table tbody tr:hover {
 }
 
 body.light-mode .navbar-toggler {
-    background-color: var(--accent-primary);
+    background-color: var(--color-primary);
 }
+
+body.light-mode footer {
+    background: rgba(248, 250, 252, 0.8);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   26. UTILIDADES
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.text-end {
+    text-align: end;
+}
+
+/* Ajuste de Márgenes (Eje vertical) */
+.mt-0 { margin-top: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mt-1 { margin-top: 0.5rem !important; }
+.mb-1 { margin-bottom: 0.5rem !important; }
+.mt-2 { margin-top: 1rem !important; }
+.mb-2 { margin-bottom: 1rem !important; }
+.mt-3 { margin-top: 1.5rem !important; }
+.mb-3 { margin-bottom: 1.5rem !important; }
+.mt-4 { margin-top: 2rem !important; }
+.mb-4 { margin-bottom: 2rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+
+/* Ajuste de Padding (Uniforme) - CORREGIDO */
+.p-0 { padding: 0 !important; }
+.p-1 { padding: 0.5rem !important; }
+.p-2 { padding: 1rem !important; }
+.p-3 { padding: 1.5rem !important; } /* Corregido: antes era 3rem */
+.p-4 { padding: 2rem !important; }
+.p-5 { padding: 3rem !important; }
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.gap-1 { gap: 0.5rem !important; }
+.gap-2 { gap: 1rem !important; }
+.gap-3 { gap: 1.5rem !important; }
+.gap-4 { gap: 2rem !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FIN DEL STYLESHEET
+═══════════════════════════════════════════════════════════════════════════════ */

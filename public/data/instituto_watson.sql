@@ -160,3 +160,6 @@ INSERT INTO notas (descripcion) VALUES
 
 INSERT INTO anuncios_aula (id, titulo, contenido, autor, fecha) VALUES 
 ('AV-101', '¡Bienvenidos al semestre!', 'Ya está disponible el material de estudio de la primera unidad. Por favor, revisen sus correos.', 'Administración', '20/06/2026');
+
+
+select * from notas;
