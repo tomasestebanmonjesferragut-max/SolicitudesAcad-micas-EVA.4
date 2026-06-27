@@ -558,9 +558,13 @@ hr {
    EFECTOS ESPECIALES
 ========================================= */
 .text-dark {
-    color: var(--text-primary) !important;
+    color: #ffffff !important; /* Blanco puro para resaltar en el panel oscuro */
 }
 
+/* Y asegúrate de agregar esto al final de tu archivo, dentro de la sección de TEMA CLARO */
+body.light-mode .text-dark {
+    color: #0f172a !important; /* Gris casi negro para máxima legibilidad en fondo claro */
+}
 .bg-white.rounded-circle {
     background: var(--bg-secondary) !important;
     border: 2px solid var(--glass-border);
